@@ -1,0 +1,30 @@
+[
+{
+    "id": 1,
+    "name": "Chicken Taco",
+    "image": "/images/taco-chicken.jpg",
+    "desc": "This taco is prepared with delicious organic chicken and served with a homemade pico-de-galo",
+    "price": 12
+},
+{
+    "id": 2,
+    "name": "Carnitas Taco",
+    "image": "/images/taco-carnitas.jpg",
+    "desc": "The carnita is slowly cooked to achieve a delicious and juicy flavor. Eating this is like going back to Mexico",
+    "price": 11
+},
+{
+    "id": 3,
+    "name": "Taco Hot Sauce",
+    "image": "/images/taco-hot-sauce.jpg",
+    "desc": "Voted as the best taco in Seattle for three consecutives years. This taco delivers an unmatched flavor of  traditional mexican food.",
+    "price": 15
+},
+{
+    "id": 4,
+    "name": "Sea Food Taco",
+    "image": "/images/taco-sea-food.jpg",
+    "desc": "This taco is prepared with the freshest local sea food with an unmatched flavor",
+    "price": 16
+}
+]

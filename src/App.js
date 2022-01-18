@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.scss";
+
+import { Container, Row, Col } from "react-bootstrap";
+import TacoCard from "./components/TacoCard";
+import Confirmation from "./components/Confirmation";
+import tacos from "./data";
 
 function App() {
+  const [ordered, setOrdered] = useState(false);
+
+  const displayConfirmation = () => {
+    setOrdered(true);
+
+    setTimeout(() => {
+      setOrdered(false);
+    }, 3000);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container>
+        {ordered && <Confirmation toggle={setOrdered} />}
+        <Row>
+          {tacos.map((data) => (
+            <Col xs={3} className="mb=5" key={`$data.id`}>
+              <TacoCard data={data} setOrdered={displayConfirmation} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
   );
 }
 
