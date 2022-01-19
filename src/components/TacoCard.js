@@ -16,11 +16,11 @@ const TacoCard = ({ setOrdered, data }) => {
         <Card.Text className="text-secondary">{data.desc}</Card.Text>
         <Button
           onClick={() => setOrdered()}
+          variant="success"
           className="mt-auto font-weight-bold"
-          variant="sucess"
           block
         >
-          Place Order
+          Order Taco
         </Button>
       </Card.Body>
     </Card>

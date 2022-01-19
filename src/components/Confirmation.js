@@ -10,7 +10,7 @@ const Confirmation = ({ toggle }) => {
         <small className="text-muted">just now</small>
       </Toast.Header>
       <Toast.Body>
-        Your delicious tacos will be with you in 45min!! hold tight!
+        Your delicious tacos will be ready for pick-up in 45 min
       </Toast.Body>
     </Toast>
   );

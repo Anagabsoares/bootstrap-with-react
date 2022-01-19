@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.scss";
+import "./App.css";
 
 import { Container, Row, Col } from "react-bootstrap";
 import TacoCard from "./components/TacoCard";
@@ -15,7 +15,7 @@ function App() {
 
     setTimeout(() => {
       setOrdered(false);
-    }, 3000);
+    }, 5000);
   };
 
   return (
