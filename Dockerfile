@@ -18,7 +18,7 @@ FROM nginx:1.21.5-alpine as prod
 
 COPY --from=build /code/build /usr/share/nginx/html
 
-CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
+CMD -c "/usr/bin/env bash envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
 # docker run --rm -it --name web -p 3000:80  react-docker:1.0.0-prod
 
 # DEVELOPMENT 
