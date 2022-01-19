@@ -14,12 +14,23 @@ RUN npm run build
 
 
 # NGINX WEB SERVER CONFIG
-FROM nginx:1.21.5-alpine as prod
 
-COPY --from=build /code/build /usr/share/nginx/html
+FROM nginx
 
-CMD -c "/usr/bin/env bash envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
-# docker run --rm -it --name web -p 3000:80  react-docker:1.0.0-prod
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=builder /app/build /usr/share/nginx/html
+
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
+
+# FROM nginx:1.21.5-alpine 
+
+# COPY --from=build /code/build /usr/share/nginx/html
+
+# COPY ./default.conf /etc/nginx/conf.d/default.conf
+
+# CMD /bin/bash -c "envsubst '\$PORT \$HEROKU_APP_CLIENT_URL \$HEROKU_APP_BACKEND_URL' < /etc/nginx/conf.d/default.conf > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
+# # docker run --rm -it --name web -p 3000:80  react-docker:1.0.0-prod
 
 # DEVELOPMENT 
 #? FROM node:16.13.2-buster 
